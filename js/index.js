@@ -119,7 +119,7 @@ function plot(f, t) {
                     .attr("height", function (d) { return d.y1 - d.y0; })
                     .style("fill", function (d) { return d.z; });
 
-            }, 2000);
+            }, 1000);
         });
     } else if (document.getElementById("state").value != "All") {
 

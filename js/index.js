@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", function(event) {
+    showMap();
+});
+
+
 var interval;
 
 function showMap() {

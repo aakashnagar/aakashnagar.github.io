@@ -37,7 +37,7 @@ function plot(f, t) {
         el.querySelectorAll('*').forEach(n => n.remove());
     }
     if (document.getElementById("district").checked == false) {
-        d3.json("json/states.json", function (json) {
+        d3.json("https://github.com/aakashnagar/aakashnagar.github.io/blob/master/json/states.json", function (json) {
             d3.json("http://api.nightlights.io/months/" + interval + "/states", function (j) {
                 if (j == null || (f[0] > t[0] && f[1] <= t[1])) {
                     alert("Select only between Jan 1993 and  Dec 2013");
@@ -118,7 +118,7 @@ function plot(f, t) {
         });
     } else if (document.getElementById("state").value != "All") {
 
-        d3.json("json/districts.json", function (json) {
+        d3.json("https://github.com/aakashnagar/aakashnagar.github.io/blob/master/json/districts.json", function (json) {
             if ((f[0] > t[0] && f[1] <= t[1])) {
                 alert("Select only between Jan 1993 and  Dec 2013");
                 location.reload();

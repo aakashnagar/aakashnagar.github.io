@@ -6,12 +6,19 @@
 </head>
 <body>
     <div id="container">
-    <div id = txt> </div>
+    <div id = txt> 
+        <h2> India Night Lights Output</h2>
+        <p>The India Lights API shows light output at night for 20 years, from 1993 to 2013, for 600,000 villages across India. </p>
+        <p>The Defense Meteorological Satellite Program (DMSP), run by the U.S. Department of Defense, has taken pictures of the Earth every night for 20 years. Researchers at the University of Michigan used the DMSP images to extract the data and provide it in tabular form. </p> 
+        <p>India Lights API provides the data at convenient endpoints that allows you to look at specific time intervals and administration levels.</p>
+        <p>On the state level, the map also allows you to filter to view districts that have participated in India’s flagship electrification program</p>
+        <table id = "data"></table>
+    </div>
     <div id = "map">
     <label for="fromrange"> Date from </label>
     <input type="month" id="fromrange" name="fromrange" value="1993-01" min="1993-01" max="2013-12">
     <label for="torange"> to </label>
-    <input type="month" id="torange" name="torange" value="1993-01" min="1993-01" max="2013-12">
+    <input type="month" id="torange" name="torange" value="2013-12" min="1993-01" max="2013-12">
     <label for="state"> State </label>
     <select name="state" id="state" class="form-control">
         <option value="All">All</option>
@@ -55,8 +62,5 @@
 
 </div>
 </div>
-<p>
-    Source(Data): http://india.nightlights.io/ Copyright@2020 Project By: Aakash Nagar(<a href="github.com/aakashnagar"> github.com/aakashnagar </a>)
-</p>
 </body>
 </html>

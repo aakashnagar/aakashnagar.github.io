@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
     showMap();
 });
 
@@ -39,6 +39,10 @@ function plot(f, t) {
     }
     if ((document.getElementById('india')) !== null) {
         var el = document.getElementById('india');
+        el.querySelectorAll('*').forEach(n => n.remove());
+    }
+    if ((document.getElementById('data')) !== null) {
+        var el = document.getElementById('data');
         el.querySelectorAll('*').forEach(n => n.remove());
     }
     if (document.getElementById("district").checked == false) {
@@ -118,7 +122,28 @@ function plot(f, t) {
                     .attr("y", function (d) { return d.y0; })
                     .attr("height", function (d) { return d.y1 - d.y0; })
                     .style("fill", function (d) { return d.z; });
-
+                var tbl = document.getElementById("data");
+                var tbdy = document.createElement('tbody');
+                var tr = document.createElement('tr');
+                var td1 = document.createElement('th');
+                var td2 = document.createElement('th');
+                td1.appendChild(document.createTextNode(" State "));
+                td2.appendChild(document.createTextNode(" Total "));
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tbdy.appendChild(tr);
+                json.features.forEach(e => {
+                    if (e.total === '0') { return; }
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    var td2 = document.createElement('td');
+                    td1.appendChild(document.createTextNode(e.id));
+                    td2.appendChild(document.createTextNode(e.total));
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tbdy.appendChild(tr);
+                });
+                tbl.appendChild(tbdy);
             }, 1000);
         });
     } else if (document.getElementById("state").value != "All") {
@@ -197,6 +222,28 @@ function plot(f, t) {
                     .attr("y", function (d) { return d.y0; })
                     .attr("height", function (d) { return d.y1 - d.y0; })
                     .style("fill", function (d) { return d.z; });
+                var tbl = document.getElementById("data");
+                var tbdy = document.createElement('tbody');
+                var tr = document.createElement('tr');
+                var td1 = document.createElement('th');
+                var td2 = document.createElement('th');
+                td1.appendChild(document.createTextNode(" District "));
+                td2.appendChild(document.createTextNode(" Total "));
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tbdy.appendChild(tr);
+                localjson.forEach(e => {
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    var td2 = document.createElement('td');
+                    var l = document.getElementById("state").value.split(" ").length;
+                    td1.appendChild(document.createTextNode(e.key.split('-').slice(l).join(" ")));
+                    td2.appendChild(document.createTextNode(e.count));
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tbdy.appendChild(tr);
+                });
+                tbl.appendChild(tbdy);
             }, 1000);
         });
     }

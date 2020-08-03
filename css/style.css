@@ -1,11 +1,10 @@
 html,body {
     margin:0;padding:0;height:100%;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    overflow: hidden;
 }
 
 
- #container {
+#container {
      height: 95%;
     width: 100%;
     margin: auto;
@@ -19,11 +18,21 @@ html,body {
     float: left;
     width: 70%;
 }
+
+#data{
+    border-collapse: collapse;
+    border: 1px solid black;
+
+}
  input[type=month] {
   width: 16%;
   padding: 6px 10px;
   margin: 8px 0;
   box-sizing: border-box;
+}
+
+footer {
+    float: right;
 }
 
 input[type=checkbox]{
@@ -88,4 +97,3 @@ select {
  .key rect {
      stroke-width: .4;
  }
-

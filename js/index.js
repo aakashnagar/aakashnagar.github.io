@@ -156,12 +156,12 @@ function plot(f, t) {
             }
             var localjson;
             if (document.getElementById("state").value == "Jammu and Kashmir") {
-                d3.json("https://api.nightlights.io/months/2010.3-2010.4/states/jammu-&-kashmir/districts", function (j) {
+                d3.json("http://api.nightlights.io/months/2010.3-2010.4/states/jammu-&-kashmir/districts", function (j) {
                     localjson = j;
                 });
             }
             else {
-                d3.json("https://api.nightlights.io/months/2010.3-2010.4/states/" + document.getElementById("state").value.toLowerCase().split(" ").join("-") + "/districts", function (j) {
+                d3.json("http://api.nightlights.io/months/2010.3-2010.4/states/" + document.getElementById("state").value.toLowerCase().split(" ").join("-") + "/districts", function (j) {
                     localjson = j;
                 });
             }
